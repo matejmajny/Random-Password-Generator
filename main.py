@@ -25,7 +25,7 @@ else:
 
 #special
 if symbols == "yes" or symbols == "y":
-    special = string_utils.shuffle("&@&{Łßß÷")
+    special = string_utils.shuffle("!@#$%^&*()_+{}[]<>?/|")
 else:
     special = ""
 
