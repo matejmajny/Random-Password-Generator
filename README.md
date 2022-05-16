@@ -1,4 +1,4 @@
-![banner](https://dumpyy.gq/files/matej.png)
+![banner](https://dumpyy.gq/files/randompassgenbymatej.png)
 
 # Features
 * lightweight
