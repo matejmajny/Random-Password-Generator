@@ -1,6 +1,7 @@
+![banner](https://dumpyy.gq/files/matej.png)
+
 # Features
 * lightweight
-* sometimes dont work (best feature)
 * open source
 
 # Requirements (just for py file)
