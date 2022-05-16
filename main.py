@@ -10,23 +10,27 @@ numbers = input("Do you want numbers? ")
 capital = input("Do you want capital letters? ")
 print("\n\n")
 
+long = long.lower()
+symbols = symbols.lower()
+numbers = numbers.lower()
+capital = capital.lower()
 
 letters = string_utils.shuffle("qwertyuiopasdfghjklzxcvbnm")
 
 #capitals
-if capital == "yes":
+if capital == "yes" or capital == "y":
     capital_letters = string_utils.shuffle("QWERTYUIOPASDFGHJKLZXCVBNM")
 else:
     capital_letters = ""
 
 #special
-if symbols == "yes":
+if symbols == "yes" or symbols == "y":
     special = string_utils.shuffle("&@&{Łßß÷")
 else:
     special = ""
 
 #numbers
-if numbers == "yes":
+if numbers == "yes" or numbers == "y":
     numbers1 = string_utils.shuffle("1234567890")
 else:
     numbers1 = ""
@@ -38,8 +42,9 @@ final = final[:long]
 print(Fore.GREEN + "Your generated password is: " + final + Fore.BLUE)
 copy = input("Do you want copy your password? ")
 
-if copy == "yes":
+if copy == "yes" or copy == "y":
     pyperclip.copy(final)
 
 print("\n\n" + Fore.RED)
 input("Push ENTER for exit...")
+#thanks dumpy for some help smh
