@@ -1,40 +1,53 @@
-import string_utils, os, pyperclip, random
+import os
+import pyperclip
+import random
 from colorama import *
 init()
 
 idk = "yes"
 
+
+def clearConsole():
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+
+def shuffle(str):
+    return ''.join(random.sample(str, len(str)))
+
+
 while idk == "yes":
-    print(Fore.RESET + "")
-    long = input("How long should your password be? ")
-    symbols = input("Do you want special symobls?")
-    numbers = input("Do you want numbers? ")
-    capital = input("Do you want capital letters? ")
+    print(Fore.YELLOW + "")
+    long = input("How many characters should your password be? ")
+    symbols = input("Do you want special symobls? (Y/n) ")
+    numbers = input("Do you want numbers? (Y/n) ")
+    capital = input("Do you want capital letters? (Y/n) ")
     print("\n\n")
+    symbols = symbols.lower()
+    numbers = numbers.lower()
+    capital = capital.lower()
 
+    letters = shuffle("qwertyuiopasdfghjklzxcvbnm")
 
-    letters = string_utils.shuffle("qwertyuiopasdfghjklzxcvbnm")
-
-    #capitals
-    if capital == "yes":
-        capital_letters = string_utils.shuffle("QWERTYUIOPASDFGHJKLZXCVBNM")
+    # capitals
+    if capital == "yes" or capital == "y" or capital == "":
+        capital_letters = shuffle("QWERTYUIOPASDFGHJKLZXCVBNM")
     else:
         capital_letters = ""
 
-    #special
-    if symbols == "yes":
-        special = string_utils.shuffle("&@&{Łßß÷")
+    # special
+    if symbols == "yes" or symbols == "y" or symbols == "":
+        special = shuffle("!@#$%^&*()_+")
     else:
         special = ""
 
-    #numbers
-    if numbers == "yes":
-        numbers1 = string_utils.shuffle("1234567890")
+    # numbers
+    if numbers == "yes" or numbers == "y" or numbers == "":
+        numbers1 = shuffle("1234567890")
     else:
         numbers1 = ""
 
     long = int(long)
-    final = string_utils.shuffle(capital_letters + special + numbers1 + letters)
+    final = shuffle(capital_letters + special + numbers1 + letters)
     final = final[:long]
 
     print(Fore.GREEN + "Your generated password is: " + final + Fore.BLUE)
@@ -43,13 +56,12 @@ while idk == "yes":
     if copy == "yes":
         pyperclip.copy(final)
 
-    #repeat system
+    # repeat system
     print(Fore.CYAN + "")
-    idk = input("\nDo you want to repeat? ")
-    
+    idk = input("\nDo you want to generate another? ")
+
     if idk == "yes":
-        os.system('cls') #windows
-        os.system('clear') #linux
+        clearConsole()
 
 print("\n\n" + Fore.RED)
 input("Push ENTER for exit...")
