@@ -6,9 +6,7 @@ idk = "yes"
 def clearConsole():
     os.system('cls' if os.name == 'nt' else 'clear')
 def shuffle(str):
-    str = list(str)
-    random.shuffle(str)
-    return ''.join(str)
+    return ''.join(random.sample(str, len(str)))
 while idk == "yes":
     print(Fore.YELLOW + "")
     long = input("How many characters should your password be? (Y/n) ")
