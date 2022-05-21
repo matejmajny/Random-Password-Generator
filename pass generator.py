@@ -1,15 +1,23 @@
-import os, pyperclip, random
+import os
+import pyperclip
+import random
 from colorama import *
 init()
 
 idk = "yes"
+
+
 def clearConsole():
     os.system('cls' if os.name == 'nt' else 'clear')
+
+
 def shuffle(str):
     return ''.join(random.sample(str, len(str)))
+
+
 while idk == "yes":
     print(Fore.YELLOW + "")
-    long = input("How many characters should your password be? (Y/n) ")
+    long = input("How many characters should your password be? ")
     symbols = input("Do you want special symobls? (Y/n) ")
     numbers = input("Do you want numbers? (Y/n) ")
     capital = input("Do you want capital letters? (Y/n) ")
@@ -18,22 +26,21 @@ while idk == "yes":
     numbers = numbers.lower()
     capital = capital.lower()
 
-
     letters = shuffle("qwertyuiopasdfghjklzxcvbnm")
 
-    #capitals
+    # capitals
     if capital == "yes" or capital == "y" or capital == "":
         capital_letters = shuffle("QWERTYUIOPASDFGHJKLZXCVBNM")
     else:
         capital_letters = ""
 
-    #special
+    # special
     if symbols == "yes" or symbols == "y" or symbols == "":
         special = shuffle("!@#$%^&*()_+")
     else:
         special = ""
 
-    #numbers
+    # numbers
     if numbers == "yes" or numbers == "y" or numbers == "":
         numbers1 = shuffle("1234567890")
     else:
@@ -49,10 +56,10 @@ while idk == "yes":
     if copy == "yes":
         pyperclip.copy(final)
 
-    #repeat system
+    # repeat system
     print(Fore.CYAN + "")
     idk = input("\nDo you want to generate another? ")
-    
+
     if idk == "yes":
         clearConsole()
 
